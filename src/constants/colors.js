@@ -1,8 +1,8 @@
 import { colors as appColors } from '../../app.json';
 
 export const COLORS = {
-  primary: appColors.primary, // brand color
-  shadow: '#DCDCDC', // card shadow color
+  primary: appColors.primary,
+  shadow: '#DCDCDC',
   border: '#C3C3C4',
   danger: 'red',
 };

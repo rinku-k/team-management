@@ -31,6 +31,7 @@ const TeamList = () => {
               placeholder={fields.placeholder}
               value={member[fields.key]}
               keyboardType={fields.type}
+              maxLength={fields.limit}
               onChangeText={(textValue) => {
                 // TODO: Validate
                 dispatch(updateMemberInfo({ key: fields.key, value: textValue }))
