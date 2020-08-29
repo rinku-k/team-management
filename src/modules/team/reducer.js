@@ -2,23 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ROLES, SCREENS, ACTIONS } from '../../constants';
 
 const initialState = {
-  allIds: [1, 2],
-  byIds: {
-    1: {
-      first: "Charlene",
-      last: "Pham",
-      role: ROLES.ADMIN,
-      phone: "454-234-1245",
-      email: "blah@gmail.com",
-    },
-    2: {
-      first: "Adrien",
-      last: "Blah",
-      role: ROLES.REGULAR,
-      phone: "354-123335",
-      email: "tetsf@gmail.com",
-    }
-  },
+  allIds: [],
+  byIds: {},
   currentScreen: SCREENS.LIST,
   selectedMember: 0,
   member: {
