@@ -1,14 +1,13 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { addMember } from './reducer';
+import { useSelector } from 'react-redux';
 import Member from './member';
 import Header from './header';
 import { SPACINGS } from '../../constants';
 
 const TeamList = () => {
   const members = useSelector(state => state.teamList.allIds);
-  const dispatch = useDispatch();
+  // TODO: Add Flatlist (to handle large list items)
   return (
     <View style={styles.container}>
       <Header title="Team members" text={`You have ${members.length} team members.`} />

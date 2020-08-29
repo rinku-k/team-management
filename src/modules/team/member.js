@@ -16,9 +16,7 @@ const Member = (props) => {
   return (
     <TouchableNativeFeedback
       onPress={() => {
-        dispatch(editMember({
-          id: props.id,
-        }));
+        dispatch(editMember(props.id));
       }}
     >
       <View style={styles.container}>

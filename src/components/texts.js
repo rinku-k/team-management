@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import PropTypes from 'prop-types';
-import { fontSize } from '../constants';
+import { FONT_SIZE } from '../constants';
 
 export const Title = ({ text, style, ...props }) => (
   <Text
     {...props}
-    style={{ fontSize: fontSize.title, ...style }}
+    style={{ fontSize: FONT_SIZE.title, ...style }}
   >
     {text}
   </Text>
@@ -16,7 +16,7 @@ export const SubTitle = ({ text, style, ...props }) => (
   <Text
     {...props}
     style={{
-      fontSize: fontSize.subtitle,
+      fontSize: FONT_SIZE.subtitle,
       ...style,
     }}
   >
@@ -28,7 +28,7 @@ export const Heading = ({ text, style, ...props }) => (
   <Text
     {...props}
     style={{
-      fontSize: fontSize.heading,
+      fontSize: FONT_SIZE.heading,
       ...style,
     }}
   >
@@ -40,7 +40,7 @@ export const SubHeading = ({ text, style, ...props }) => (
   <Text
     {...props}
     style={{
-      fontSize: fontSize.subheading,
+      fontSize: FONT_SIZE.subheading,
       ...style,
     }}
   >
@@ -52,7 +52,7 @@ export const Content = ({ text, style, ...props }) => (
   <Text
     {...props}
     style={{
-      fontSize: fontSize.text,
+      fontSize: FONT_SIZE.text,
       ...style,
     }}
   >
@@ -64,7 +64,7 @@ export const Legend = ({ text, style, ...props }) => (
   <Text
     {...props}
     style={{
-      fontSize: fontSize.legends,
+      fontSize: FONT_SIZE.legends,
       ...style,
     }}
   >

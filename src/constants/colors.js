@@ -4,6 +4,7 @@ export const COLORS = {
   primary: appColors.primary, // brand color
   shadow: '#DCDCDC', // card shadow color
   border: '#C3C3C4',
+  danger: 'red',
 };
 
 export const TEXT_COLORS = {

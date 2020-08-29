@@ -2,6 +2,7 @@ export * from './fonts';
 export * from './colors';
 
 export const SPACINGS = {
+  inner: 10,
   container: 15,
   headerPadding: 30,
 };
@@ -9,7 +10,8 @@ export const SPACINGS = {
 export const BORDERS = {
   thin: 0.5,
   medium: 1,
-  thik: 2,
+  thick: 2,
+  radius: 4,
 };
 
 export const ROLES = {
