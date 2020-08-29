@@ -19,3 +19,14 @@ export const ROLES = {
   REGULAR: 1,
   ADMIN: 2,
 };
+
+export const SCREENS = {
+  LIST: 0,
+  EDIT: 1,
+};
+
+export const ACTIONS = {
+  BACK: 0,
+  DELETE: 1,
+  SAVE: 2,
+};

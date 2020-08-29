@@ -6,17 +6,22 @@ import { TEXT_COLORS, SPACINGS, COLORS, BORDERS } from '../../constants';
 const Header = (props) => {
   return (
     <View style={styles.header}>
-      <Title text={props.title} />
-      <Heading
-        text={props.text}
-        style={{ color: TEXT_COLORS.light }}
-      />
+      <View>
+        <Title text={props.title} />
+        <Heading
+          text={props.text}
+          style={{ color: TEXT_COLORS.light }}
+        />
+      </View>
+      {props.children}
     </View>
   )
 };
 
 const styles = StyleSheet.create({
   header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingBottom: SPACINGS.headerPadding,
     borderBottomColor: COLORS.border,
     borderBottomWidth: BORDERS.thin,

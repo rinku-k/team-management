@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, StyleSheet } from 'react-native';
-import { COLORS, TEXT_COLORS, BORDERS } from '../constants';
+import { COLORS, TEXT_COLORS, BORDERS, FONT_SIZE } from '../constants';
 import { Content } from './texts';
 
 export const GhostButton = ({ color, text, textColor, style, ...props }) => (
@@ -24,6 +24,18 @@ export const PrimaryButton = ({ color, text, textColor, style, ...props }) => (
     <Content
       text={text}
       style={{ alignSelf: 'center', paddingHorizontal: 20, color: textColor }}
+    />
+  </TouchableOpacity>
+);
+
+export const IconLink = ({ text, textColor, ...props }) => (
+  <TouchableOpacity
+    style={styles.button}
+    {...props}
+  >
+    <Content
+      text={text}
+      style={{ alignSelf: 'center', paddingHorizontal: 20, color: textColor, fontSize: FONT_SIZE.title }}
     />
   </TouchableOpacity>
 );
@@ -61,4 +73,13 @@ GhostButton.defaultProps = {
   ...PrimaryButton.defaultProps,
   color: COLORS.border,
   textColor: TEXT_COLORS.dark,
+};
+
+IconLink.propTypes = {
+  ...PrimaryButton.propTypes,
+};
+
+IconLink.defaultProps = {
+  ...PrimaryButton.defaultProps,
+  textColor: COLORS.primary,
 };

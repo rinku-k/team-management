@@ -5,7 +5,7 @@ import { COLORS, SPACINGS, BORDERS, ROLES } from '../constants';
 import { Content } from './texts';
 
 export const RadioList = ({ items, onPress, selected }) => items.map((item) => (
-  <TouchableOpacity style={styles.item} onPress={() => onPress(item.type)}>
+  <TouchableOpacity key={item.type} style={styles.item} onPress={() => onPress(item.type)}>
     <Content text={item.text} />
     <View style={styles.radio}>
       { item.type === selected ?
