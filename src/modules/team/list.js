@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { editMember } from './reducer';
+import { addOrEditMember } from './reducer';
 import Member from './member';
 import Header from './header';
 import { IconLink } from '../../components';
@@ -16,7 +16,7 @@ const TeamList = () => {
         title="Team members"
         text={`You have ${members.length} team members.`}
       >
-        <IconLink text="+" onPress={() => { dispatch(editMember()) }} />
+        <IconLink text="+" onPress={() => { dispatch(addOrEditMember()) }} />
       </Header>
       <FlatList
         data={members}

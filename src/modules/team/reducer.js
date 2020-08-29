@@ -45,7 +45,7 @@ export const teamList = createSlice({
     updateMemberInfo: (state, action) => {
       state.member[action.payload.key] = action.payload.value;
     },
-    editMember: (state, action) => {
+    addOrEditMember: (state, action) => {
       if(action.payload) {
         state.selectedMember = action.payload;
         state.member = state.byIds[action.payload];
@@ -53,8 +53,8 @@ export const teamList = createSlice({
       state.currentScreen = SCREENS.EDIT;
     },
   }
-})
+});
 
-export const { saveOrExit, editMember, updateMemberInfo } = teamList.actions
+export const { saveOrExit, addOrEditMember, updateMemberInfo } = teamList.actions
 
 export default teamList.reducer

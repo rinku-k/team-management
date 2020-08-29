@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { View, TouchableNativeFeedback, StyleSheet } from 'react-native';
 import { SubHeading, Content } from '../../components';
 import { useSelector, useDispatch } from 'react-redux';
-import { editMember } from './reducer';
+import { addOrEditMember } from './reducer';
 import { TEXT_COLORS, SPACINGS, COLORS, BORDERS, ROLES } from '../../constants';
 
 const Member = (props) => {
@@ -16,7 +16,7 @@ const Member = (props) => {
   return (
     <TouchableNativeFeedback
       onPress={() => {
-        dispatch(editMember(props.id));
+        dispatch(addOrEditMember(props.id));
       }}
     >
       <View style={styles.container}>
