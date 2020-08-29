@@ -6,9 +6,9 @@ A simple team-member management application that allows the user to view, edit, 
   - [x] Screen to edit existing member
 
 <p align="center">
-<img src="/.github/list.jpeg" height="500" />
-<img src="/.github/add.jpeg" height="500" />
-<img src="/.github/edit.jpeg" height="500" />
+<img src="/.github/list.jpg" height="500" />
+<img src="/.github/add.jpg" height="500" />
+<img src="/.github/edit.jpg" height="500" />
 </p>
 
 # TODO
