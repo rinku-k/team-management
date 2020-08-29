@@ -9,4 +9,5 @@ A simple team-member management application that allows the user to view, edit, 
 # TODO
   - [x] Add Flatlist to handle large list items
   - [x] Remove dummy data
-  - [ ] UI Cleanup
+  - [x] UI Cleanup
+  - [ ] Add ES Linter

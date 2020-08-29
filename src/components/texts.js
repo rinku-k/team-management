@@ -75,7 +75,7 @@ export const Legend = ({ text, style, ...props }) => (
 
 Title.propTypes = {
   text: PropTypes.string,
-  style: PropTypes.object,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 Title.defaultProps = {
