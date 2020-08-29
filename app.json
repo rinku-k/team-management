@@ -1,4 +1,7 @@
 {
   "name": "teamManagement",
-  "displayName": "teamManagement"
+  "displayName": "teamManagement",
+  "colors": {
+    "primary": "blue"
+  }
 }

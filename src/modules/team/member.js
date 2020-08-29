@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, TouchableNativeFeedback, StyleSheet } from 'react-native';
+import { View, TouchableNativeFeedback, StyleSheet } from 'react-native';
+import { SubHeading, Content } from '../../components';
 import { useSelector, useDispatch } from 'react-redux';
 import { editMember } from './reducer';
+import { TEXT_COLORS, SPACINGS, COLORS, BORDERS, ROLES } from '../../constants';
 
 const Member = (props) => {
   const memberDetails = useSelector(state => state.teamList.byIds[props.id])
@@ -10,6 +12,7 @@ const Member = (props) => {
   if (!memberDetails) {
     return null;
   }
+  const { first, last, role, phone, email } = memberDetails;
   return (
     <TouchableNativeFeedback
       onPress={() => {
@@ -19,7 +22,14 @@ const Member = (props) => {
       }}
     >
       <View style={styles.container}>
-        <Text>{memberDetails.name}</Text>
+        <View style={styles.imageDummy} />
+        <View>
+          <SubHeading
+            text={`${first} ${last} ${role === ROLES.ADMIN ? "(admin)" : ""}`}
+          />
+          <Content text={phone} style={styles.light} />
+          <Content text={email} style={styles.light} />
+        </View>
       </View>
     </TouchableNativeFeedback>
   );
@@ -28,8 +38,19 @@ const Member = (props) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    padding: 10,
-    // alignItems: 'center',
+    paddingVertical: SPACINGS.container,
+    borderBottomColor: COLORS.border,
+    borderBottomWidth: BORDERS.thin,
+  },
+  imageDummy: {
+    width: 40,
+    height: 40,
+    backgroundColor: COLORS.shadow,
+    marginRight: SPACINGS.container,
+    borderRadius: 20,
+  },
+  light: {
+    color: TEXT_COLORS.light,
   },
 });
 

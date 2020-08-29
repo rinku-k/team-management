@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ROLES } from '../../constants';
 
 export const teamList = createSlice({
   name: 'teamList',
@@ -6,10 +7,18 @@ export const teamList = createSlice({
     allIds: [1, 2],
     byIds: {
       1: {
-        name: "Tester 1",
+        first: "Charlene",
+        last: "Pham",
+        role: ROLES.ADMIN,
+        phone: "454-234-1245",
+        email: "blah@gmail.com",
       },
       2: {
-        name: "Tester 2",
+        first: "Adrien",
+        last: "Blah",
+        role: ROLES.REGULAR,
+        phone: "354-123335",
+        email: "tetsf@gmail.com",
       }
     },
   },
@@ -23,7 +32,8 @@ export const teamList = createSlice({
     },
     editMember: (state, action) => {
       state.byIds[action.payload.id] = {
-        name: `${state.byIds[action.payload.id].name} new`,
+        ...state.byIds[action.payload.id],
+        last: `${state.byIds[action.payload.id].last} new`,
       }
     },
   }
