@@ -5,6 +5,7 @@ import { COLORS, TEXT_COLORS, FONT_SIZE, BORDERS, SPACINGS } from '../constants'
 export const Input = (props) => (
   <TextInput
     maxLength={20}
+    minLength={5}
     placeholderTextColor={TEXT_COLORS.light}
     style={styles.inputBox}
     {...props}

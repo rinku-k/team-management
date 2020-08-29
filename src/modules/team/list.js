@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { editMember } from './reducer';
 import Member from './member';
@@ -10,7 +10,6 @@ import { SPACINGS } from '../../constants';
 const TeamList = () => {
   const members = useSelector(state => state.teamList.allIds);
   const dispatch = useDispatch();
-  // TODO: Add Flatlist (to handle large list items)
   return (
     <View style={styles.container}>
       <Header
@@ -19,16 +18,21 @@ const TeamList = () => {
       >
         <IconLink text="+" onPress={() => { dispatch(editMember()) }} />
       </Header>
-      { members.map((memberId, index) => (
-          <Member key={`${memberId}`} id={memberId} />
-        ))
-      }
+      <FlatList
+        data={members}
+        keyExtractor={id => `${id}`}
+        renderItem={({ item, index }) => (
+          <Member key={`${item}`} id={item} />
+        )}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: SPACINGS.container,
     // alignItems: 'center',
   },

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import { COLORS, SPACINGS, BORDERS, ROLES } from '../constants';
+import { COLORS, TEXT_COLORS, SPACINGS, BORDERS, ROLES } from '../constants';
 import { Content } from './texts';
 
 export const RadioList = ({ items, onPress, selected }) => items.map((item) => (
   <TouchableOpacity key={item.type} style={styles.item} onPress={() => onPress(item.type)}>
-    <Content text={item.text} />
+    <Content text={item.text} style={{ color: TEXT_COLORS.regular }} />
     <View style={styles.radio}>
       { item.type === selected ?
         <View style={styles.radioSelected}/>

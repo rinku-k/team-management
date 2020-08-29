@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { saveMember, updateMemberInfo } from './reducer';
-import Header from './header';
-import { Heading, GhostButton, PrimaryButton, Input, RadioList, IconLink } from '../../components';
-import { SPACINGS, COLORS, ACTIONS } from '../../constants';
+import { saveOrExit, updateMemberInfo } from '../reducer';
+import Header from '../header';
+import { Heading, GhostButton, PrimaryButton, Input, RadioList, IconLink } from '../../../components';
+import { SPACINGS, COLORS, ACTIONS } from '../../../constants';
 import { memberDetail, roles } from './configuration';
 
 const TeamList = () => {
@@ -16,9 +16,13 @@ const TeamList = () => {
         title={selectedMember ? "Edit team member" : "Add a team member"}
         text={selectedMember ? "Edit contact info, location and role." : "Set email, location and role."}
       >
-        <IconLink text="x" onPress={() => dispatch(saveMember())} />
+        <IconLink text="x" onPress={() => dispatch(saveOrExit())} />
       </Header>
-      <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="handled">
+      <ScrollView
+        style={{ flex: 1 }}
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+      >
         <View style={styles.section}>
           <Heading text="Info" />
           { memberDetail.map((fields) => (
@@ -47,12 +51,14 @@ const TeamList = () => {
         </View>
       </ScrollView>
       <View style={styles.footer}>
-        <GhostButton text="Delete" textColor={COLORS.danger} onPress={() => {
-          dispatch(saveMember(ACTIONS.DELETE));
-        }} />
         <PrimaryButton text="Save" onPress={() => {
-          dispatch(saveMember(ACTIONS.SAVE));
+          dispatch(saveOrExit(ACTIONS.SAVE));
         }} />
+        { !!selectedMember &&
+          <GhostButton text="Delete" textColor={COLORS.danger} onPress={() => {
+            dispatch(saveOrExit(ACTIONS.DELETE));
+          }} />
+        }
       </View>
     </View>
   );
@@ -68,7 +74,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     justifyContent: 'flex-end',
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     justifyContent: 'space-between',
   },
 });

@@ -7,6 +7,6 @@ A simple team-member management application that allows the user to view, edit, 
   - [x] Screen to edit existing member
 
 # TODO
-  - [ ] Add Flatlist to handle large list items
-  - [ ] UI Cleanup
+  - [x] Add Flatlist to handle large list items
   - [x] Remove dummy data
+  - [ ] UI Cleanup

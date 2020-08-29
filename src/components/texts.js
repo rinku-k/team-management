@@ -29,6 +29,7 @@ export const Heading = ({ text, style, ...props }) => (
     {...props}
     style={{
       fontSize: FONT_SIZE.heading,
+      fontWeight: 'bold',
       ...style,
     }}
   >

@@ -1,5 +1,5 @@
 export const FONT_SIZE = {
-  title: 24,
+  title: 26,
   subtitle: 18,
   heading: 16,
   subheading: 14,

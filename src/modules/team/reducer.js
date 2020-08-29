@@ -19,17 +19,22 @@ export const teamList = createSlice({
   name: 'teamList',
   initialState,
   reducers: {
-    saveMember: (state, action) => {
+    saveOrExit: (state, action) => {
+      // Saves, delete and/or exit the form input screen
       let memberId = state.selectedMember;
       const actionType = action.payload;
       if (actionType === ACTIONS.SAVE) {
+        // Loose Validation - Check for mandatory field entry
+        if (!(state.member.first && state.member.phone && state.member.email)) {
+          return;
+        }
         if (!memberId) {
           memberId = (state.allIds[state.allIds.length - 1] || 0) + 1;
           state.allIds.push(memberId);
         }
         state.byIds[memberId] = state.member
       }
-      if (actionType === ACTIONS.DELETE) {
+      if (actionType === ACTIONS.DELETE && memberId) {
         delete state.byIds[memberId];
         state.allIds.splice(state.allIds.indexOf(memberId), 1);
       }
@@ -50,6 +55,6 @@ export const teamList = createSlice({
   }
 })
 
-export const { saveMember, editMember, updateMemberInfo } = teamList.actions
+export const { saveOrExit, editMember, updateMemberInfo } = teamList.actions
 
 export default teamList.reducer
