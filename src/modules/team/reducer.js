@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 import { ROLES, SCREENS, ACTIONS } from '../../constants';
 
@@ -7,11 +8,11 @@ const initialState = {
   currentScreen: SCREENS.LIST,
   selectedMember: 0,
   member: {
-    first: "",
-    last: "",
+    first: '',
+    last: '',
     role: ROLES.REGULAR,
-    phone: "",
-    email: "",
+    phone: '',
+    email: '',
   },
 };
 
@@ -32,7 +33,7 @@ export const teamList = createSlice({
           memberId = (state.allIds[state.allIds.length - 1] || 0) + 1;
           state.allIds.push(memberId);
         }
-        state.byIds[memberId] = state.member
+        state.byIds[memberId] = state.member;
       }
       if (actionType === ACTIONS.DELETE && memberId) {
         delete state.byIds[memberId];
@@ -46,15 +47,16 @@ export const teamList = createSlice({
       state.member[action.payload.key] = action.payload.value;
     },
     addOrEditMember: (state, action) => {
-      if(action.payload) {
+      if (action.payload) {
         state.selectedMember = action.payload;
         state.member = state.byIds[action.payload];
       }
       state.currentScreen = SCREENS.EDIT;
     },
-  }
+  },
 });
 
-export const { saveOrExit, addOrEditMember, updateMemberInfo } = teamList.actions
+export const { saveOrExit, addOrEditMember, updateMemberInfo } =
+  teamList.actions;
 
-export default teamList.reducer
+export default teamList.reducer;

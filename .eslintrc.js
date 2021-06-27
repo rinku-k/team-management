@@ -15,5 +15,6 @@ module.exports = {
     'object-curly-newline': 'off',
     'react/prop-types': ['error', { ignore: ['navigation'] }],
     'linebreak-style': ['error', 'unix'],
+    'operator-linebreak': 'off',
   },
 };
