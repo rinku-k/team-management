@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, StyleSheet } from 'react-native';
@@ -18,7 +19,11 @@ export const GhostButton = ({ color, text, textColor, style, ...props }) => (
 
 export const PrimaryButton = ({ color, text, textColor, style, ...props }) => (
   <TouchableOpacity
-    style={[styles.button, { backgroundColor: color, borderColor: color }, style]}
+    style={[
+      styles.button,
+      { backgroundColor: color, borderColor: color },
+      style,
+    ]}
     {...props}
   >
     <Content
@@ -29,13 +34,15 @@ export const PrimaryButton = ({ color, text, textColor, style, ...props }) => (
 );
 
 export const IconLink = ({ text, textColor, ...props }) => (
-  <TouchableOpacity
-    style={styles.button}
-    {...props}
-  >
+  <TouchableOpacity style={styles.button} {...props}>
     <Content
       text={text}
-      style={{ alignSelf: 'center', paddingHorizontal: 20, color: textColor, fontSize: FONT_SIZE.title }}
+      style={{
+        alignSelf: 'center',
+        paddingHorizontal: 20,
+        color: textColor,
+        fontSize: FONT_SIZE.title,
+      }}
     />
   </TouchableOpacity>
 );
@@ -54,7 +61,7 @@ const styles = StyleSheet.create({
 
 PrimaryButton.propTypes = {
   text: PropTypes.string.isRequired,
-  style: PropTypes.object,
+  style: PropTypes.shape({ root: PropTypes.string.isRequired }),
   color: PropTypes.string,
   textColor: PropTypes.string,
 };

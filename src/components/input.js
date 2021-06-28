@@ -1,6 +1,13 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
-import { COLORS, TEXT_COLORS, FONT_SIZE, BORDERS, SPACINGS } from '../constants';
+import {
+  COLORS,
+  TEXT_COLORS,
+  FONT_SIZE,
+  BORDERS,
+  SPACINGS,
+} from '../constants';
 
 export const Input = (props) => (
   <TextInput
@@ -17,7 +24,7 @@ const styles = StyleSheet.create({
     color: TEXT_COLORS.darkest,
     paddingVertical: 5,
     paddingHorizontal: SPACINGS.inner,
-    marginVertical:  SPACINGS.inner,
+    marginVertical: SPACINGS.inner,
     borderColor: COLORS.border,
     borderWidth: BORDERS.medium,
     borderRadius: BORDERS.radius,
