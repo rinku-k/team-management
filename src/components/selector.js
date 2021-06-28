@@ -19,7 +19,7 @@ export const RadioList = ({ items, onPress, selected }) =>
   ));
 
 RadioList.propTypes = {
-  items: PropTypes.shape([]),
+  items: PropTypes.arrayOf(PropTypes.object),
   selected: PropTypes.number,
 };
 

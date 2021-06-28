@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet, ViewPropTypes } from 'react-native';
 import { COLORS, TEXT_COLORS, BORDERS, FONT_SIZE } from '../constants';
 import { Content } from './texts';
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 
 PrimaryButton.propTypes = {
   text: PropTypes.string.isRequired,
-  style: PropTypes.shape({ root: PropTypes.string.isRequired }),
+  style: ViewPropTypes.style,
   color: PropTypes.string,
   textColor: PropTypes.string,
 };
