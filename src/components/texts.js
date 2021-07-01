@@ -1,13 +1,11 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { FONT_SIZE } from '../constants';
 
 export const Title = ({ text, style, ...props }) => (
-  <Text
-    {...props}
-    style={{ fontSize: FONT_SIZE.title, ...style }}
-  >
+  <Text {...props} style={{ fontSize: FONT_SIZE.title, ...style }}>
     {text}
   </Text>
 );
@@ -80,7 +78,7 @@ Title.propTypes = {
 
 Title.defaultProps = {
   style: {},
-  text: ""
+  text: '',
 };
 
 Heading.propTypes = {
@@ -92,33 +90,41 @@ Heading.defaultProps = {
 };
 
 SubHeading.propTypes = {
-  ...Heading.propTypes,
+  ...Title.propTypes,
 };
 
 SubHeading.defaultProps = {
-  ...Heading.defaultProps,
+  ...Title.defaultProps,
 };
 
 Text.propTypes = {
-  ...Heading.propTypes,
+  ...Title.propTypes,
 };
 
 Text.defaultProps = {
-  ...Heading.defaultProps,
+  ...Title.defaultProps,
 };
 
 SubTitle.propTypes = {
-  ...Heading.propTypes,
+  ...Title.propTypes,
 };
 
 SubTitle.defaultProps = {
-  ...Heading.defaultProps,
+  ...Title.defaultProps,
+};
+
+Content.propTypes = {
+  ...Title.propTypes,
+};
+
+Content.defaultProps = {
+  ...Title.defaultProps,
 };
 
 Legend.propTypes = {
-  ...Heading.propTypes,
+  ...Title.propTypes,
 };
 
 Legend.defaultProps = {
-  ...Heading.defaultProps,
+  ...Title.defaultProps,
 };

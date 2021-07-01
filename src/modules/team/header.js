@@ -4,20 +4,15 @@ import { View, StyleSheet } from 'react-native';
 import { Title, SubTitle } from '../../components';
 import { TEXT_COLORS, SPACINGS, COLORS, BORDERS } from '../../constants';
 
-const Header = (props) => {
-  return (
-    <View style={styles.header}>
-      <View>
-        <Title text={props.title} />
-        <SubTitle
-          text={props.text}
-          style={{ color: TEXT_COLORS.light }}
-        />
-      </View>
-      {props.children}
+export const Header = ({ title, text, children }) => (
+  <View style={styles.header}>
+    <View>
+      <Title text={title} />
+      <SubTitle text={text} style={{ color: TEXT_COLORS.light }} />
     </View>
-  );
-};
+    {children}
+  </View>
+);
 
 const styles = StyleSheet.create({
   header: {
@@ -26,7 +21,7 @@ const styles = StyleSheet.create({
     paddingBottom: SPACINGS.headerPadding,
     borderBottomColor: COLORS.border,
     borderBottomWidth: BORDERS.thin,
-  }
+  },
 });
 
 Header.propTypes = {
@@ -38,5 +33,3 @@ Header.propTypes = {
 Header.defaultProps = {
   children: null,
 };
-
-export default Header;

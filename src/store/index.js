@@ -12,10 +12,10 @@ import {
 } from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import * as teamList from '../modules/team/reducer';
+import { teamListReducer } from '../modules/team/reducer';
 
 const rootReducer = combineReducers({
-  teamList,
+  teamList: teamListReducer,
 });
 
 const persistConfig = {

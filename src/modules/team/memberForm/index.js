@@ -2,19 +2,30 @@ import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveOrExit, updateMemberInfo } from '../reducer';
-import Header from '../header';
-import { Heading, GhostButton, PrimaryButton, Input, RadioList, IconLink } from '../../../components';
+import { Header } from '../header';
+import {
+  Heading,
+  GhostButton,
+  PrimaryButton,
+  Input,
+  RadioList,
+  IconLink,
+} from '../../../components';
 import { SPACINGS, COLORS, ACTIONS } from '../../../constants';
 import { memberDetail, roles } from './configuration';
 
-const TeamList = () => {
-  const { member, selectedMember } = useSelector(state => state.teamList);
+export const MemberForm = () => {
+  const { member, selectedMember } = useSelector((state) => state.teamList);
   const dispatch = useDispatch();
   return (
     <View style={styles.container}>
       <Header
-        title={selectedMember ? "Edit team member" : "Add a team member"}
-        text={selectedMember ? "Edit contact info, location and role." : "Set email, location and role."}
+        title={selectedMember ? 'Edit team member' : 'Add a team member'}
+        text={
+          selectedMember
+            ? 'Edit contact info, location and role.'
+            : 'Set email, location and role.'
+        }
       >
         <IconLink text="x" onPress={() => dispatch(saveOrExit())} />
       </Header>
@@ -25,7 +36,7 @@ const TeamList = () => {
       >
         <View style={styles.section}>
           <Heading text="Info" />
-          { memberDetail.map((fields) => (
+          {memberDetail.map((fields) => (
             <Input
               key={fields.key}
               placeholder={fields.placeholder}
@@ -34,11 +45,12 @@ const TeamList = () => {
               maxLength={fields.limit}
               onChangeText={(textValue) => {
                 // TODO: Validate
-                dispatch(updateMemberInfo({ key: fields.key, value: textValue }))
+                dispatch(
+                  updateMemberInfo({ key: fields.key, value: textValue }),
+                );
               }}
             />
-          ))
-          }
+          ))}
         </View>
         <View style={styles.section}>
           <Heading text="Role" />
@@ -46,20 +58,27 @@ const TeamList = () => {
             items={roles}
             selected={member.role}
             onPress={(value) => {
-              dispatch(updateMemberInfo({ key: "role", value }))
+              dispatch(updateMemberInfo({ key: 'role', value }));
             }}
           />
         </View>
       </ScrollView>
       <View style={styles.footer}>
-        <PrimaryButton text="Save" onPress={() => {
-          dispatch(saveOrExit(ACTIONS.SAVE));
-        }} />
-        { !!selectedMember &&
-          <GhostButton text="Delete" textColor={COLORS.danger} onPress={() => {
-            dispatch(saveOrExit(ACTIONS.DELETE));
-          }} />
-        }
+        <PrimaryButton
+          text="Save"
+          onPress={() => {
+            dispatch(saveOrExit(ACTIONS.SAVE));
+          }}
+        />
+        {!!selectedMember && (
+          <GhostButton
+            text="Delete"
+            textColor={COLORS.danger}
+            onPress={() => {
+              dispatch(saveOrExit(ACTIONS.DELETE));
+            }}
+          />
+        )}
       </View>
     </View>
   );
@@ -74,10 +93,8 @@ const styles = StyleSheet.create({
     paddingVertical: SPACINGS.container,
   },
   footer: {
-    justifyContent: 'flex-end',
+    // justifyContent: 'flex-end',
     flexDirection: 'row-reverse',
     justifyContent: 'space-between',
   },
 });
-
-export default TeamList;

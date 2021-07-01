@@ -20,5 +20,8 @@ module.exports = {
     'react/prop-types': ['error', { ignore: ['navigation'] }],
     'linebreak-style': ['error', 'unix'],
     'operator-linebreak': 'off',
+    'import/no-default-export': ['error'],
+    'import/prefer-default-export': 'off',
+    'implicit-arrow-linebreak': 'off',
   },
 };

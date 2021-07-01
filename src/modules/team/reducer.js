@@ -56,7 +56,10 @@ export const teamList = createSlice({
   },
 });
 
-export const { saveOrExit, addOrEditMember, updateMemberInfo } =
-  teamList.actions;
+export const {
+  saveOrExit,
+  addOrEditMember,
+  updateMemberInfo,
+} = teamList.actions;
 
-export default teamList.reducer;
+export const teamListReducer = teamList.reducer;

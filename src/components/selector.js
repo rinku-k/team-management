@@ -4,20 +4,22 @@ import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS, TEXT_COLORS, SPACINGS, BORDERS, ROLES } from '../constants';
 import { Content } from './texts';
 
-export const RadioList = ({ items, onPress, selected }) => items.map((item) => (
-  <TouchableOpacity key={item.type} style={styles.item} onPress={() => onPress(item.type)}>
-    <Content text={item.text} style={{ color: TEXT_COLORS.regular }} />
-    <View style={styles.radio}>
-      { item.type === selected ?
-        <View style={styles.radioSelected}/>
-        : null
-      }
-    </View>
-  </TouchableOpacity>
-));
+export const RadioList = ({ items, onPress, selected }) =>
+  items.map((item) => (
+    <TouchableOpacity
+      key={item.type}
+      style={styles.item}
+      onPress={() => onPress(item.type)}
+    >
+      <Content text={item.text} style={{ color: TEXT_COLORS.regular }} />
+      <View style={styles.radio}>
+        {item.type === selected ? <View style={styles.radioSelected} /> : null}
+      </View>
+    </TouchableOpacity>
+  ));
 
 RadioList.propTypes = {
-  items: PropTypes.array,
+  items: PropTypes.arrayOf(PropTypes.object),
   selected: PropTypes.number,
 };
 
@@ -49,5 +51,5 @@ const styles = StyleSheet.create({
     width: 10,
     borderRadius: 5,
     backgroundColor: COLORS.primary,
-  }
+  },
 });

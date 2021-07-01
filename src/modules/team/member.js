@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableNativeFeedback, StyleSheet } from 'react-native';
-import { SubHeading, Content } from '../../components';
 import { useSelector, useDispatch } from 'react-redux';
+import { SubHeading, Content } from '../../components';
 import { addOrEditMember } from './reducer';
 import { TEXT_COLORS, SPACINGS, COLORS, BORDERS, ROLES } from '../../constants';
 
-const Member = (props) => {
-  const memberDetails = useSelector(state => state.teamList.byIds[props.id])
+export const Member = (props) => {
+  const memberDetails = useSelector((state) => state.teamList.byIds[props.id]);
   const dispatch = useDispatch();
   if (!memberDetails) {
     return null;
@@ -23,7 +23,7 @@ const Member = (props) => {
         <View style={styles.imageDummy} />
         <View>
           <SubHeading
-            text={`${first} ${last} ${role === ROLES.ADMIN ? "(admin)" : ""}`}
+            text={`${first} ${last} ${role === ROLES.ADMIN ? '(admin)' : ''}`}
           />
           <Content text={phone} style={styles.light} />
           <Content text={email} style={styles.light} />
@@ -55,5 +55,3 @@ const styles = StyleSheet.create({
 Member.propTypes = {
   id: PropTypes.number.isRequired,
 };
-
-export default Member;
