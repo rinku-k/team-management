@@ -14,19 +14,19 @@ export const BORDERS = {
   radius: 4,
 };
 
-export const ROLES = {
-  UNKNOWN: 0,
-  REGULAR: 1,
-  ADMIN: 2,
-};
+export enum ROLES {
+  UNKNOWN,
+  REGULAR,
+  ADMIN,
+}
 
-export const SCREENS = {
-  LIST: 0,
-  EDIT: 1,
-};
+export enum SCREENS {
+  LIST,
+  EDIT,
+}
 
-export const ACTIONS = {
-  BACK: 0,
-  DELETE: 1,
-  SAVE: 2,
-};
+export enum ACTIONS {
+  BACK,
+  DELETE,
+  SAVE,
+}
