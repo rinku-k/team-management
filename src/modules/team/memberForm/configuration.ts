@@ -1,17 +1,22 @@
 import { ROLES } from '../../../constants';
 
-export const memberDetail = [
+export const memberDetail: {
+  placeholder: string;
+  key: string;
+  limit: number;
+  type: string;
+}[] = [
   {
     placeholder: 'First name',
     key: 'first',
     limit: 20,
-    type: null,
+    type: '',
   },
   {
     placeholder: 'Last name',
     key: 'last',
     limit: 20,
-    type: null,
+    type: '',
   },
   {
     placeholder: 'Email',
@@ -27,7 +32,7 @@ export const memberDetail = [
   },
 ];
 
-export const roles = [
+export const roles: { text: string; type: ROLES }[] = [
   {
     text: "Regular - Can't delete members",
     type: ROLES.REGULAR,
